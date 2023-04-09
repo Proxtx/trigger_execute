@@ -9,6 +9,8 @@ iframe.src = u.href;
   let dimensions = await iframe.combine.size();
   iframe.style.height = dimensions.height + "px";
 
+  if (triggerPresetData) iframe.combine.importAction(triggerPresetData);
+
   while (true) {
     await iframe.combine.resizeObserver();
     let dimensions = await iframe.combine.size();
