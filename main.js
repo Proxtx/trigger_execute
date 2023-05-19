@@ -10,7 +10,7 @@ export class Trigger {
 
     (async () => {
       this.api = await genCombine(
-        config.unifyGuiAPI.url + "/",
+        config.apps + "/",
         "public/api.js",
         genModule
       );
@@ -24,13 +24,13 @@ export class Trigger {
     return {
       html: this.html,
       handler: this.handler,
-      data: { url: config.unifyGuiAPI.url },
+      data: { url: config.guiUrl },
     };
   };
 
   triggers = async (data) => {
     return await this.api.execute(
-      config.unifyGuiAPI.pwd,
+      config.pwd,
       data.appName,
       data.method,
       data.arguments
